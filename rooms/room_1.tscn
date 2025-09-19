@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://corhk7dno85eq"]
+[gd_scene load_steps=6 format=3 uid="uid://corhk7dno85eq"]
 
 [ext_resource type="PackedScene" uid="uid://biniydtbfpr77" path="res://camera/camera_3d.tscn" id="1_2otyv"]
+[ext_resource type="Script" uid="uid://dmd5b0jkwxljv" path="res://rooms/room_1.gd" id="1_j6sld"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s102h"]
 size = Vector3(6, 0.2, 1)
@@ -12,6 +13,7 @@ size = Vector3(2, 0.2, 1)
 size = Vector3(2.2319336, 2, 1)
 
 [node name="Room1" type="Node3D"]
+script = ExtResource("1_j6sld")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -86,12 +88,14 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 
 size = Vector3(1, 2, 0.2)
 
 [node name="MainMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 1)
 
 [node name="OtherSideMarker" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -0.25)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0.5, -0.25)
 
-[node name="Camera3D" parent="." instance=ExtResource("1_2otyv")]
+[node name="Camera3D" parent="." node_paths=PackedStringArray("marker1", "marker2") instance=ExtResource("1_2otyv")]
+marker1 = NodePath("../MainMarker")
+marker2 = NodePath("../OtherSideMarker")
 
 [node name="Area3D" type="Area3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)

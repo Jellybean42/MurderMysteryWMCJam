@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://pp02x7in5aal"]
+
+[ext_resource type="Script" uid="uid://ciyyraqa0bhr5" path="res://PlayerControllerDemo/player.gd" id="1_n5j63"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_qaxec"]
+
+[node name="PlayerControllerDemo" type="Node3D"]
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("1_n5j63")
+min_x = -2.0
+max_x = 2.0
+min_z = -0.25
+max_z = 0.5
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+billboard = 2
+texture = ExtResource("1_qaxec")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)

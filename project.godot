@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="MurderMystery"
-run/main_scene="uid://pp02x7in5aal"
+run/main_scene="uid://8p025rwjh74a"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [editor]
 
 version_control/autoload_on_startup=true
+
+[global_group]
+
+player=""

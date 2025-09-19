@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dhu3nks2mu2yd"]
+[gd_scene load_steps=0 format=3 uid="uid://dhu3nks2mu2yd"]
 
 [node name="Detective" type="CharacterBody3D"]
 

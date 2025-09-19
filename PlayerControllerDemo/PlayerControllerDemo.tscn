@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_qaxec"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5j63"]
+size = Vector3(0.5, 1, 0.5)
 
-[node name="PlayerControllerDemo" type="Node3D" groups=["player"]]
+[node name="PlayerControllerDemo" type="Node3D"]
 
-[node name="Player" type="Node3D" parent="." groups=["player"]]
+[node name="Player" type="Node3D" parent="." groups=["playernode"]]
 script = ExtResource("1_n5j63")
 min_x = -2.0
 max_x = 2.0

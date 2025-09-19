@@ -39,35 +39,33 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees.y = facing_angle
 
 # Collection Interaction
-# player.gd（只展示新增/修改部分）
-
-@onready var interact_area: Area3D = $InteractArea
+@onready var interact_area: Area3D = get_node_or_null("InteractArea")
 var target: Node = null
 
 func _ready() -> void:
-	# 连接进入/离开事件
-	interact_area.body_entered.connect(_on_body_entered)
-	interact_area.body_exited.connect(_on_body_exited)
-	# 如果你用的是 area_entered/area_exited，请把类型和回调对应改为 Area3D
+	if interact_area:
+		# 注意：Area3D ↔ Area3D 用 area_entered / area_exited
+		interact_area.area_entered.connect(_on_area_entered)
+		interact_area.area_exited.connect(_on_area_exited)
+	else:
+		push_error("InteractArea not found under Player. Please add an Area3D named 'InteractArea'.")
 
-func _on_body_entered(body: Node) -> void:
-	if body.has_method("collect"): # 只认会被“收集”的对象
-		target = body
-		_show_prompt(true, body)
+func _on_area_entered(area: Area3D) -> void:
+	if area and area.has_method("collect"):
+		target = area
+		_show_prompt(true, area)
 
-func _on_body_exited(body: Node) -> void:
-	if body == target:
-		_show_prompt(false, body)
+func _on_area_exited(area: Area3D) -> void:
+	if area == target:
+		_show_prompt(false, area)
 		target = null
 
 func _unhandled_input(event: InputEvent) -> void:
 	if target and Input.is_action_just_pressed("interact"):
-		# 调用物品的 collect（玩家主导交互）
 		if target.has_method("collect"):
-			target.collect(self)  # 传入自己可选
-			target = null
+			target.collect(self)
+		target = null
 
-func _show_prompt(show: bool, body: Node) -> void:
-	# 可选：让物品自己显示/隐藏“按E拾取”的提示
-	if body.has_method("set_prompt_visible"):
-		body.set_prompt_visible(show)
+func _show_prompt(v: bool, node: Node) -> void:
+	if node and node.has_method("set_prompt_visible"):
+		node.set_prompt_visible(v)

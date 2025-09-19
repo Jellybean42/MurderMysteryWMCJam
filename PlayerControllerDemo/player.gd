@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 
 # Collection Interaction
 # player.gd（只展示新增/修改部分）
-extends CharacterBody3D
 
 @onready var interact_area: Area3D = $InteractArea
 var target: Node = null

@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://ciyyraqa0bhr5" path="res://PlayerControllerDemo/player.gd" id="1_n5j63"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_qaxec"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_n5j63"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5j63"]
 
-[node name="PlayerControllerDemo" type="Node3D"]
+[node name="PlayerControllerDemo" type="Node3D" groups=["player"]]
 
-[node name="Player" type="Node3D" parent="."]
+[node name="Player" type="Node3D" parent="." groups=["player"]]
 script = ExtResource("1_n5j63")
 min_x = -2.0
 max_x = 2.0
@@ -18,8 +18,7 @@ max_z = 0.5
 billboard = 2
 texture = ExtResource("1_qaxec")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Player" groups=["player"]]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, -2.1855694e-08, -1, 0, 0.5, -4.371139e-08, 1, 0, -1)
-mesh = SubResource("CylinderMesh_n5j63")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/CharacterBody3D"]
+shape = SubResource("BoxShape3D_n5j63")

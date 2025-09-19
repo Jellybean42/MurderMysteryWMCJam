@@ -1,43 +1,39 @@
 extends Node3D
 
-@export var speed_side: float = 5.0      # Left/right speed
-@export var speed_depth: float = 2.0     # Up/down speed (slower)
+@export var speed_side: float = 5.0   # fast
+@export var speed_depth: float = 2.0  # slow
 
-# Bounds for movement (in world space)
+# Bounds in world space
 @export var min_x: float = -5.0
 @export var max_x: float =  5.0
 @export var min_z: float = -3.0
 @export var max_z: float =  3.0
 
+var facing_angle := 0.0  # Track rotation in degrees
+
 func _physics_process(delta: float) -> void:
-	var direction := Vector3.ZERO
+	var local_velocity := Vector3.ZERO
 
-	# Left/right movement
+	# Interpret inputs first
 	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
+		local_velocity.x -= speed_side
 	if Input.is_action_pressed("ui_right"):
-		direction.x += 1
-
-	# Forward/backward movement (depth)
+		local_velocity.x += speed_side
 	if Input.is_action_pressed("ui_up"):
-		direction.z -= 1
+		local_velocity.z -= speed_depth
 	if Input.is_action_pressed("ui_down"):
-		direction.z += 1
+		local_velocity.z += speed_depth
 
-	# Normalize so diagonal isn’t faster
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+	if local_velocity != Vector3.ZERO:
+		# Transform local (relative to player) into world
+		var world_velocity := basis * local_velocity
+		global_translate(world_velocity * delta)
 
-	# Apply different speeds to axes
-	var velocity := Vector3(
-		direction.x * speed_side,
-		0.0,
-		direction.z * speed_depth
-	)
-
-	# Move the character
-	translate(velocity * delta)
-
-	# Clamp position inside the bounding box
+	# Clamp bounds
 	global_position.x = clamp(global_position.x, min_x, max_x)
 	global_position.z = clamp(global_position.z, min_z, max_z)
+
+	# Rotate player + camera together
+	if Input.is_action_just_pressed("ui_select"):
+		facing_angle += 90.0
+		rotation_degrees.y = facing_angle

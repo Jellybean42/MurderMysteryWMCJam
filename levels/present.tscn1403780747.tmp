@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwpq7ftaeywcp"]
+[gd_scene load_steps=21 format=3 uid="uid://cwpq7ftaeywcp"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_ml523"]
 [ext_resource type="PackedScene" uid="uid://ro5l25gmnmgr" path="res://rooms/upper_floor_present.tscn" id="2_viv30"]
@@ -29,6 +29,8 @@ size = Vector3(1, 1, 0.07647705)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekteu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_55phd"]
+
+[sub_resource type="ExternalTexture" id="ExternalTexture_q8rcl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8wxpc"]
 
@@ -90,6 +92,7 @@ skeleton = NodePath("../../InteractArea")
 [node name="Item3D_a" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7092867, 1.2323637, 0)
 script = ExtResource("8_ujrt8")
+icon = SubResource("ExternalTexture_q8rcl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Item3D_a"]
 shape = SubResource("SphereShape3D_8wxpc")

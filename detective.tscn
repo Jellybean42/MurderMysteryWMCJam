@@ -1,5 +1,0 @@
-[gd_scene load_steps=0 format=3 uid="uid://dhu3nks2mu2yd"]
-
-[node name="Detective" type="CharacterBody3D"]
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]

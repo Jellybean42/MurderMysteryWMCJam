@@ -13,6 +13,10 @@ func _on_clicked():
 		Global.player_transform = player.global_transform
 
 	if target_scene_path != "":
-		get_tree().change_scene_to_file(target_scene_path)
+		var target_scene: PackedScene = ResourceLoader.load(target_scene_path)
+		if target_scene:
+			get_tree().change_scene_to_packed(target_scene)
+		else:
+			push_warning("Could not load scene at %s" % target_scene_path)
 	else:
-		push_warning("No target scene set on %s" % name)
+		push_warning("No target scene path set on %s" % name)

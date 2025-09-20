@@ -10,7 +10,7 @@ size = Vector3(7, 5, 1)
 size = Vector3(4, 0.2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2otyv"]
-size = Vector3(1, 2, 1)
+size = Vector3(2, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olrdv"]
 size = Vector3(4.4, 2, 3)
@@ -34,6 +34,7 @@ size = Vector3(1, 2, 4)
 size = Vector3(1, 2, 7)
 
 [node name="Room1" type="StaticBody3D"]
+input_ray_pickable = false
 script = ExtResource("1_rnj2d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -144,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6159668, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1159668, -0.5, 0)
 shape = SubResource("BoxShape3D_2otyv")
 
 [node name="Room" type="Area3D" parent="."]

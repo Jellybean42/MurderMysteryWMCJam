@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	if local_velocity != Vector3.ZERO:
 		var world_velocity := global_transform.basis * local_velocity
 		global_position += world_velocity * delta
-		print_debug("moving to: ", global_position)  # ← 应该能看到输出
+		#print_debug("moving to: ", global_position)  # ← 应该能看到输出
 
 
 # Collection Interaction

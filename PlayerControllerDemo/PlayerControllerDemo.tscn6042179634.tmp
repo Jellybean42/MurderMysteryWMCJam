@@ -20,6 +20,10 @@
 
 [node name="Player" type="Node3D" parent="."]
 script = ExtResource("1_n5j63")
+min_x = -2.0
+max_x = 2.0
+min_z = -0.25
+max_z = 0.5
 
 [node name="Sprite3D" type="Sprite3D" parent="Player"]
 billboard = 2
@@ -44,6 +48,7 @@ skeleton = NodePath("../../InteractArea")
 
 [node name="Item3D" type="Area3D" parent="."]
 script = ExtResource("3_ov84c")
+item_id = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Item3D"]
 shape = SubResource("SphereShape3D_ov84c")

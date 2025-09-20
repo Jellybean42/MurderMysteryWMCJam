@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://pp02x7in5aal"]
+[gd_scene load_steps=6 format=3 uid="uid://pp02x7in5aal"]
 
 [ext_resource type="Script" uid="uid://ciyyraqa0bhr5" path="res://PlayerControllerDemo/player.gd" id="1_n5j63"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_qaxec"]
@@ -7,8 +7,6 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_ov84c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ov84c"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_n5j63"]
 
 [node name="PlayerControllerDemo" type="Node3D"]
 
@@ -37,7 +35,3 @@ shape = SubResource("SphereShape3D_ov84c")
 shape = SubResource("CylinderShape3D_ov84c")
 
 [node name="Node3D" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, -2.1855694e-08, -1, 0, 0.5, -4.371139e-08, 1, 0, -1)
-mesh = SubResource("CylinderMesh_n5j63")

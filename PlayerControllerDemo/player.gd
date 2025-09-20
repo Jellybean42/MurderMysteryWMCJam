@@ -11,6 +11,7 @@ extends Node3D
 
 var facing_angle := 0.0  # Track rotation in degrees
 
+
 func _physics_process(delta: float) -> void:
 	var local_velocity := Vector3.ZERO
 
@@ -49,7 +50,9 @@ func _ready() -> void:
 		interact_area.area_exited.connect(_on_area_exited)
 	else:
 		push_error("InteractArea not found under Player. Please add an Area3D named 'InteractArea'.")
-
+	if Global.player_transform:
+		global_transform = Global.player_transform
+		
 func _on_area_entered(area: Area3D) -> void:
 	if area and area.has_method("collect"):
 		target = area

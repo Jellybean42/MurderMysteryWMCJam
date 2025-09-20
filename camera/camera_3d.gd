@@ -6,8 +6,6 @@ extends Camera3D
 
 @onready var room_1: Node3D = $".."
 
-var player : Node3D
-
 var target_position: Vector3
 var target_rotation: Vector3
 
@@ -17,8 +15,6 @@ func _ready() -> void:
 	rotation = marker1.rotation
 	target_position = marker1.position
 	target_rotation = marker1.rotation
-	player = get_tree().get_first_node_in_group("playernode")
-	print(player)
 
 func _process(delta: float) -> void:
 	# Smoothly interpolate towards the target
@@ -33,8 +29,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		target_rotation = marker1.rotation
 		room_1.hide_main()
 		room_1.show_other()
-		player.rotation.y = marker1.rotation.y
-		print(rad_to_deg(player.rotation.y))
+		print("do a thing")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -42,5 +37,4 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		target_rotation = marker2.rotation
 		room_1.show_main()
 		room_1.hide_other()
-		player.rotation.y = marker2.rotation.y
-		print(rad_to_deg(player.rotation.y))
+		print("do other thing")

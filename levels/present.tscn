@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwpq7ftaeywcp"]
+[gd_scene load_steps=11 format=3 uid="uid://cwpq7ftaeywcp"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_ml523"]
 [ext_resource type="PackedScene" uid="uid://ro5l25gmnmgr" path="res://rooms/upper_floor_present.tscn" id="2_viv30"]
 [ext_resource type="PackedScene" uid="uid://cg1kiipte0wg2" path="res://PlayerControllerDemo/player.tscn" id="3_tccxb"]
 [ext_resource type="Script" uid="uid://cqsp35p50u5jw" path="res://PlayerControllerDemo/player_camera.gd" id="4_viv30"]
+[ext_resource type="Script" uid="uid://bjyy7q2yuk4yd" path="res://levels/painting.gd" id="5_ve62j"]
+[ext_resource type="Texture2D" uid="uid://h8k8bn5mjibe" path="res://painting.jpeg" id="6_1rin7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ml523"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,7 +20,8 @@ sky = SubResource("Sky_viv30")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_viv30"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0kh0"]
+size = Vector3(1, 1, 0.07647705)
 
 [node name="present" type="Node3D"]
 
@@ -30,6 +33,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Room1" parent="." instance=ExtResource("1_ml523")]
+input_ray_pickable = false
 
 [node name="Player" parent="." instance=ExtResource("3_tccxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8887421, 0, 0.08958602)
@@ -42,15 +46,15 @@ script = ExtResource("4_viv30")
 [node name="Room2" parent="." instance=ExtResource("2_viv30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
-[node name="GroundStairs" type="Area3D" parent="."]
+[node name="Painting" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.482567, 0.76409984, -0.36039883)
+script = ExtResource("5_ve62j")
+target_scene_path = "uid://eok3ssfgqt45"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundStairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5000002, 0.6, 0)
-shape = SubResource("BoxShape3D_viv30")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Painting"]
+shape = SubResource("BoxShape3D_m0kh0")
 
-[node name="UpperStairs" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperStairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5000002, 0.6, 0)
-shape = SubResource("BoxShape3D_viv30")
+[node name="Image" type="Sprite3D" parent="Painting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.03628719)
+pixel_size = 0.0004
+texture = ExtResource("6_1rin7")

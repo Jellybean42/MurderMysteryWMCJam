@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://eok3ssfgqt45"]
+[gd_scene load_steps=11 format=3 uid="uid://eok3ssfgqt45"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_vf273"]
 [ext_resource type="PackedScene" uid="uid://cg1kiipte0wg2" path="res://PlayerControllerDemo/player.tscn" id="2_rm17p"]
 [ext_resource type="Script" uid="uid://cqsp35p50u5jw" path="res://PlayerControllerDemo/player_camera.gd" id="3_8js7g"]
 [ext_resource type="PackedScene" uid="uid://ro5l25gmnmgr" path="res://rooms/upper_floor_present.tscn" id="4_0p231"]
+[ext_resource type="Script" uid="uid://bjyy7q2yuk4yd" path="res://levels/painting.gd" id="5_8js7g"]
+[ext_resource type="Texture2D" uid="uid://bp3kr3lfwi406" path="res://photo.jpg" id="6_0p231"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ml523"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,6 +20,9 @@ sky = SubResource("Sky_viv30")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qsa5n"]
+size = Vector3(1, 1, 0.07647705)
+
 [node name="present" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -28,6 +33,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Room1" parent="." instance=ExtResource("1_vf273")]
+input_ray_pickable = false
 
 [node name="Player" parent="." instance=ExtResource("2_rm17p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8887421, 0, 0.08958602)
@@ -39,3 +45,16 @@ script = ExtResource("3_8js7g")
 
 [node name="Room2" parent="." instance=ExtResource("4_0p231")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+input_ray_pickable = false
+
+[node name="Painting" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4574656, 0.76409984, -0.39451104)
+script = ExtResource("5_8js7g")
+target_scene_path = "uid://cwpq7ftaeywcp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Painting"]
+shape = SubResource("BoxShape3D_qsa5n")
+
+[node name="Image" type="Sprite3D" parent="Painting"]
+pixel_size = 0.0004
+texture = ExtResource("6_0p231")

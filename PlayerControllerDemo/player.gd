@@ -9,6 +9,8 @@ extends Node3D
 @export var min_z: float = -3.0
 @export var max_z: float =  3.0
 
+var camera : Camera3D
+
 var facing_angle := 0.0  # Track rotation in degrees
 
 func _physics_process(delta: float) -> void:
@@ -33,16 +35,17 @@ func _physics_process(delta: float) -> void:
 	global_position.x = clamp(global_position.x, min_x, max_x)
 	global_position.z = clamp(global_position.z, min_z, max_z)
 
-	# Rotate player + camera together
-	if Input.is_action_just_pressed("ui_select"):
-		facing_angle += 90.0
-		rotation_degrees.y = facing_angle
+	## Rotate player + camera together
+	#if Input.is_action_just_pressed("ui_select"):
+		#facing_angle += 90.0
+		#rotation_degrees.y = facing_angle
 
 # Collection Interaction
 @onready var interact_area: Area3D = get_node_or_null("InteractArea")
 var target: Node = null
 
 func _ready() -> void:
+	camera = get_tree().get_first_node_in_group("camera")
 	if interact_area:
 		# 注意：Area3D ↔ Area3D 用 area_entered / area_exited
 		interact_area.area_entered.connect(_on_area_entered)

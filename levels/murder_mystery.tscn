@@ -27,5 +27,5 @@ shadow_enabled = true
 
 [node name="Room1" parent="." instance=ExtResource("1_re4i4")]
 
-[node name="PlayerControllerDemo" parent="." instance=ExtResource("2_kbea7")]
+[node name="PlayerControllerDemo" parent="." groups=["player"] instance=ExtResource("2_kbea7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1013664, 0.56331575, 0.568058)

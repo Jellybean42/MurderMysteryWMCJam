@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwpq7ftaeywcp"]
+[gd_scene load_steps=21 format=3 uid="uid://cwpq7ftaeywcp"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_ml523"]
 [ext_resource type="PackedScene" uid="uid://ro5l25gmnmgr" path="res://rooms/upper_floor_present.tscn" id="2_viv30"]
@@ -30,7 +30,11 @@ size = Vector3(1, 1, 0.07647705)
 
 [sub_resource type="BoxMesh" id="BoxMesh_55phd"]
 
+[sub_resource type="ExternalTexture" id="ExternalTexture_q8rcl"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_8wxpc"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ujrt8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5yfgj"]
 
@@ -72,26 +76,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.03628719)
 pixel_size = 0.0004
 texture = ExtResource("6_1rin7")
 
-[node name="PickupTrigger" type="Area3D" parent="."]
+[node name="PickupTrigger" type="Area3D" parent="." node_paths=PackedStringArray("item_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6662359, 0.5216989, -0.9245393)
 script = ExtResource("7_q8rcl")
+item_node = NodePath("../Item3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTrigger"]
 shape = SubResource("BoxShape3D_ekteu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PickupTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2596048, -0.03256738, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64416695, -0.77777874, 0)
 mesh = SubResource("BoxMesh_55phd")
 skeleton = NodePath("../../InteractArea")
 
 [node name="Item3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7092867, 1.2323637, 0)
 script = ExtResource("8_ujrt8")
+icon = SubResource("ExternalTexture_q8rcl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Item3D"]
 shape = SubResource("SphereShape3D_8wxpc")
 
-[node name="Sprite3D" type="Sprite3D" parent="Item3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Item3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7084806, -1.4941812, 0)
+mesh = SubResource("CylinderMesh_ujrt8")
 
 [node name="InteractArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7280532, 0.072960734, 0.33301592)
 script = ExtResource("9_lvjbi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]

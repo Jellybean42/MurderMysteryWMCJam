@@ -57,3 +57,5 @@ func _physics_process(delta: float) -> void:
 # Collection Interaction
 func _ready() -> void:
 	add_to_group("player")   # 确保玩家在 'player' 组（也可在编辑器里加）
+	if Global.player_transform:
+		global_transform = Global.player_transform

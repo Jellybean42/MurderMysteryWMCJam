@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwpq7ftaeywcp"]
+[gd_scene load_steps=19 format=3 uid="uid://cwpq7ftaeywcp"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_ml523"]
 [ext_resource type="PackedScene" uid="uid://ro5l25gmnmgr" path="res://rooms/upper_floor_present.tscn" id="2_viv30"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://cqsp35p50u5jw" path="res://PlayerControllerDemo/player_camera.gd" id="4_viv30"]
 [ext_resource type="Script" uid="uid://bjyy7q2yuk4yd" path="res://levels/painting.gd" id="5_ve62j"]
 [ext_resource type="Texture2D" uid="uid://h8k8bn5mjibe" path="res://painting.jpeg" id="6_1rin7"]
+[ext_resource type="Script" uid="uid://bhl8qg3twanl7" path="res://Interaction/Collection/PickupTrigger.gd" id="7_q8rcl"]
+[ext_resource type="Script" uid="uid://bj1x54u04hxjy" path="res://Interaction/Collection/Item3D.gd" id="8_ujrt8"]
+[ext_resource type="Script" uid="uid://cmp5r6v7uvo38" path="res://Interaction/InteractArea.gd" id="9_lvjbi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ml523"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,6 +25,16 @@ glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0kh0"]
 size = Vector3(1, 1, 0.07647705)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ekteu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_55phd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8wxpc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5yfgj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w0rjg"]
 
 [node name="present" type="Node3D"]
 
@@ -58,3 +71,33 @@ shape = SubResource("BoxShape3D_m0kh0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.03628719)
 pixel_size = 0.0004
 texture = ExtResource("6_1rin7")
+
+[node name="PickupTrigger" type="Area3D" parent="."]
+script = ExtResource("7_q8rcl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTrigger"]
+shape = SubResource("BoxShape3D_ekteu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PickupTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2596048, -0.03256738, 0)
+mesh = SubResource("BoxMesh_55phd")
+skeleton = NodePath("../../InteractArea")
+
+[node name="Item3D" type="Area3D" parent="."]
+script = ExtResource("8_ujrt8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Item3D"]
+shape = SubResource("SphereShape3D_8wxpc")
+
+[node name="Sprite3D" type="Sprite3D" parent="Item3D"]
+
+[node name="InteractArea" type="Area3D" parent="."]
+script = ExtResource("9_lvjbi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+shape = SubResource("CylinderShape3D_5yfgj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractArea"]
+transform = Transform3D(1, 0, 0, 0, -0.5, 6.556708e-08, 0, -3.278354e-08, -0.5, 2, 1, -0.99999994)
+mesh = SubResource("BoxMesh_w0rjg")
+skeleton = NodePath("../../Node3D/MeshInstance3D")

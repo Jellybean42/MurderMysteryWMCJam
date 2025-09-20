@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var speed_side: float = 5.0   # fast
-@export var speed_depth: float = 2.0  # slow
+@export var speed_side: float = 2.0   # fast
+@export var speed_depth: float = 1.0  # slow
 
 # Bounds in world space
 @export var min_x: float = -5.0

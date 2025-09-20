@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://g8tvlyrsl57n"]
+
+[ext_resource type="Texture2D" uid="uid://bnhpxh7tbt20g" path="res://textures/expressive-55136-planks-1140-mm-architextures.jpg" id="1_8rtjg"]
+
+[resource]
+albedo_texture = ExtResource("1_8rtjg")
+uv1_triplanar = true

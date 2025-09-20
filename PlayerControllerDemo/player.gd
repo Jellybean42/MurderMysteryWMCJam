@@ -11,7 +11,6 @@ extends Node3D
 
 var facing_angle := 0.0  # Track rotation in degrees
 
-
 func _physics_process(delta: float) -> void:
 	var local_velocity := Vector3.ZERO
 
@@ -27,8 +26,8 @@ func _physics_process(delta: float) -> void:
 
 	if local_velocity != Vector3.ZERO:
 		# Transform local (relative to player) into world
-		var world_velocity := basis * local_velocity
-		global_translate(world_velocity * delta)
+		var world_velocity := global_transform.basis * local_velocity
+		global_position += world_velocity * delta
 
 	# Clamp bounds
 	global_position.x = clamp(global_position.x, min_x, max_x)
@@ -39,36 +38,12 @@ func _physics_process(delta: float) -> void:
 		facing_angle += 90.0
 		rotation_degrees.y = facing_angle
 
+	if local_velocity != Vector3.ZERO:
+		var world_velocity := global_transform.basis * local_velocity
+		global_position += world_velocity * delta
+		print_debug("moving to: ", global_position)  # ← 应该能看到输出
+
+
 # Collection Interaction
-@onready var interact_area: Area3D = get_node_or_null("InteractArea")
-var target: Node = null
-
 func _ready() -> void:
-	if interact_area:
-		# 注意：Area3D ↔ Area3D 用 area_entered / area_exited
-		interact_area.area_entered.connect(_on_area_entered)
-		interact_area.area_exited.connect(_on_area_exited)
-	else:
-		push_error("InteractArea not found under Player. Please add an Area3D named 'InteractArea'.")
-	if Global.player_transform:
-		global_transform = Global.player_transform
-		
-func _on_area_entered(area: Area3D) -> void:
-	if area and area.has_method("collect"):
-		target = area
-		_show_prompt(true, area)
-
-func _on_area_exited(area: Area3D) -> void:
-	if area == target:
-		_show_prompt(false, area)
-		target = null
-
-func _unhandled_input(event: InputEvent) -> void:
-	if target and Input.is_action_just_pressed("interact"):
-		if target.has_method("collect"):
-			target.collect(self)
-		target = null
-
-func _show_prompt(v: bool, node: Node) -> void:
-	if node and node.has_method("set_prompt_visible"):
-		node.set_prompt_visible(v)
+	add_to_group("player")   # 确保玩家在 'player' 组（也可在编辑器里加）

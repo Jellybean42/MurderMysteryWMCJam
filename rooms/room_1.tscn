@@ -117,11 +117,11 @@ marker2 = NodePath("../OtherSideMarker")
 
 [node name="Area3D" type="Area3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_2otyv")
-disabled = true
 
 [connection signal="body_entered" from="Area3D" to="Camera3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Camera3D" method="_on_area_3d_body_exited"]

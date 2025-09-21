@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwpq7ftaeywcp"]
+[gd_scene load_steps=25 format=3 uid="uid://cwpq7ftaeywcp"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_ml523"]
 [ext_resource type="PackedScene" uid="uid://ro5l25gmnmgr" path="res://rooms/upper_floor_present.tscn" id="2_viv30"]
@@ -10,6 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://c815iyftye8qm" path="res://time_travel_flash.tscn" id="8_m0kh0"]
 [ext_resource type="AudioStream" uid="uid://ds808u2ner2tc" path="res://sounds/WalkUpStairs.mp3" id="8_ujrt8"]
 [ext_resource type="PackedScene" uid="uid://djuclm5kkealv" path="res://Interaction/dead_body.tscn" id="9_q8rcl"]
+[ext_resource type="PackedScene" uid="uid://q1beou0o5bvn" path="res://UI/CluesBook.tscn" id="11_lvjbi"]
+[ext_resource type="AudioStream" uid="uid://dqxkf72hvo17p" path="res://sounds/Present.mp3" id="12_ekteu"]
+[ext_resource type="PackedScene" uid="uid://c3e2bavaxqkxn" path="res://Interaction/collectable.tscn" id="13_x12vd"]
+[ext_resource type="Texture2D" uid="uid://dda0vhxnka6x6" path="res://Interaction/objects/joker.jpg" id="14_2isa6"]
+[ext_resource type="Texture2D" uid="uid://o8ycrqovqgrr" path="res://Interaction/letters/Screenshot 2025-09-20 182100.png" id="15_o1l5l"]
+[ext_resource type="Texture2D" uid="uid://c8tv5u3pscecd" path="res://Interaction/objects/mic.jpg" id="16_tf1gy"]
+[ext_resource type="Texture2D" uid="uid://d2fw6jpp6i5k1" path="res://Interaction/letters/Screenshot 2025-09-20 182131.png" id="17_kcmot"]
+[ext_resource type="Texture2D" uid="uid://dtfursbtyb1o" path="res://Interaction/objects/postcard.jpg" id="18_l53a4"]
+[ext_resource type="Texture2D" uid="uid://djxta4670pb44" path="res://Interaction/letters/Screenshot 2025-09-20 182115.png" id="19_e0jso"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ml523"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -104,6 +113,30 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DeadBody" parent="." instance=ExtResource("9_q8rcl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048717618, 0.003183782, -0.6570243)
+
+[node name="CluesBook" parent="." instance=ExtResource("11_lvjbi")]
+
+[node name="music" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_ekteu")
+autoplay = true
+
+[node name="Collectable" parent="." instance=ExtResource("13_x12vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19673115, 0.014930755, 0.67539775)
+object_tex = ExtResource("14_2isa6")
+letter_tex = ExtResource("15_o1l5l")
+letter_var = "O"
+
+[node name="Collectable2" parent="." instance=ExtResource("13_x12vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8967311, 0.014930755, 0.67539775)
+object_tex = ExtResource("16_tf1gy")
+letter_tex = ExtResource("17_kcmot")
+letter_var = "U2"
+
+[node name="Collectable3" parent="." instance=ExtResource("13_x12vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1032689, 0.014930755, -0.22460228)
+object_tex = ExtResource("18_l53a4")
+letter_tex = ExtResource("19_e0jso")
+letter_var = "R"
 
 [connection signal="body_entered" from="Downstairs" to="Downstairs" method="_on_body_entered"]
 [connection signal="body_exited" from="Downstairs" to="Downstairs" method="_on_body_exited"]

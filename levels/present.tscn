@@ -142,6 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048717618, 0.003183782, -0.
 
 [node name="music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_ekteu")
+volume_db = -10.0
 autoplay = true
 
 [node name="Collectable" parent="." instance=ExtResource("13_x12vd")]

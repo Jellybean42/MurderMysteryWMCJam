@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ro5l25gmnmgr"]
+[gd_scene load_steps=20 format=3 uid="uid://ro5l25gmnmgr"]
 
 [ext_resource type="Script" uid="uid://dmd5b0jkwxljv" path="res://rooms/room_1.gd" id="1_xesc5"]
 [ext_resource type="Material" uid="uid://g8tvlyrsl57n" path="res://upper_floor_present.tres" id="2_kcogv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clsde1fmd6evc" path="res://rooms/roof_present.tscn" id="5_kcogv"]
 [ext_resource type="PackedScene" uid="uid://c26ul1t2ajfaa" path="res://chandelier.tscn" id="6_av4tb"]
 [ext_resource type="PackedScene" uid="uid://cw6bglykgtbrc" path="res://sconce.tscn" id="7_rvbd7"]
+[ext_resource type="PackedScene" uid="uid://c34sllnf8r6v1" path="res://models/upstairs round window frame.fbx" id="8_cb0tb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s102h"]
 material = ExtResource("2_kcogv")
@@ -102,10 +103,27 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 
 size = Vector3(1.6, 2.5, 0.2)
 material = ExtResource("2_pjcsh")
 
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCombiner3D/OtherSide/CSGBox3D7"]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/OtherSide/CSGBox3D7/CSGCombiner3D"]
+transform = Transform3D(1, -4.371139e-08, -4.371139e-08, 4.371139e-08, -4.371139e-08, 1, -4.371139e-08, -1, -4.3711385e-08, 0, 0.35674775, 0)
+radius = 0.35
+sides = 16
+
 [node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 1.05, 0.4)
 size = Vector3(1.8000001, 2.5, 0.2)
 material = ExtResource("2_pjcsh")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCombiner3D/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10251433, 0, 0)
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D9/CSGCombiner3D"]
+transform = Transform3D(1, -4.371139e-08, -4.371139e-08, 4.371139e-08, -4.371139e-08, 1, -4.371139e-08, -1, -4.3711385e-08, 0, 0.35674775, 0)
+radius = 0.35
+sides = 16
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.55, 0.65, -0.6)
@@ -208,6 +226,12 @@ transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-
 
 [node name="Sconce4" parent="." instance=ExtResource("7_rvbd7")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 1.8999999, 0.3, -1.3000001)
+
+[node name="upstairs round window frame" parent="." instance=ExtResource("8_cb0tb")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -3, 1.0000001, 0.20000002)
+
+[node name="upstairs round window frame2" parent="." instance=ExtResource("8_cb0tb")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 3.8000002, 1.0000001, 0.20000002)
 
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]
 [connection signal="body_entered" from="Stairs" to="Camera3D" method="_on_area_3d_body_entered"]

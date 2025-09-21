@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bny5tfe4xf5j1"]
+[gd_scene load_steps=24 format=3 uid="uid://bny5tfe4xf5j1"]
 
 [ext_resource type="Script" uid="uid://dmd5b0jkwxljv" path="res://rooms/room_1.gd" id="1_rnj2d"]
 [ext_resource type="Material" uid="uid://dte15qjjirtvh" path="res://wood_panels.tres" id="2_dngkx"]
@@ -6,12 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://biniydtbfpr77" path="res://camera/camera_3d.tscn" id="2_olrdv"]
 [ext_resource type="PackedScene" uid="uid://cw6bglykgtbrc" path="res://sconce.tscn" id="5_m1sog"]
 [ext_resource type="Texture2D" uid="uid://dxpyfmylcpu1o" path="res://textures/artificial-grass-1498-mm-architextures.jpg" id="6_kmcul"]
+[ext_resource type="PackedScene" uid="uid://cpyx6rii7f0pt" path="res://models/downstair window large.fbx" id="7_dby1b"]
+[ext_resource type="Texture2D" uid="uid://cnvt8fdefrcs6" path="res://8E28D34E-A57D-4E78-8E5C-84D5BE4DBC16.jpg" id="8_u7d2c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s102h"]
 size = Vector3(7, 5, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2otyv"]
 size = Vector3(4, 0.2, 2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_dby1b"]
+size = Vector3(0.5, 0.4, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2otyv"]
 size = Vector3(2, 2, 1.6)
@@ -76,8 +81,12 @@ material = ExtResource("2_dngkx")
 operation = 2
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14999998, 0.0024303198)
-size = Vector3(0.5, 0.75, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04601133, 0.0024303198)
+size = Vector3(0.5, 0.5420227, 1)
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D/CSGBox3D2/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51280046, 0)
+mesh = SubResource("PrismMesh_dby1b")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.5)
@@ -88,16 +97,28 @@ material = ExtResource("2_dngkx")
 operation = 2
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D4/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14999998, 0)
-size = Vector3(0.5, 0.75, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.044042945, 0)
+size = Vector3(0.5, 0.53808594, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D4/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.14999998, 0)
-size = Vector3(0.5, 0.75, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.047460914, 0)
+size = Vector3(0.5, 0.5449219, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D4/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.14999998, 0)
-size = Vector3(0.5, 0.75, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.045446754, 0)
+size = Vector3(0.5, 0.54089355, 1)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D/CSGBox3D4/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.51280046, 0)
+mesh = SubResource("PrismMesh_dby1b")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D/CSGBox3D4/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51280046, 0)
+mesh = SubResource("PrismMesh_dby1b")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="CSGCombiner3D/CSGBox3D4/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.51280046, 0)
+mesh = SubResource("PrismMesh_dby1b")
 
 [node name="MainSide" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 1.2)
@@ -122,11 +143,16 @@ size = Vector3(1.1, 1.7, 0.2)
 material = ExtResource("2_dngkx")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCombiner3D/OtherSide/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08967626, 0)
 operation = 2
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D/OtherSide/CSGBox3D3/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-size = Vector3(0.5, 0.75, 1)
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/OtherSide/CSGBox3D3/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04601133, 0.0024303198)
+size = Vector3(0.5, 0.5420227, 1)
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D/OtherSide/CSGBox3D3/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51280046, 0)
+mesh = SubResource("PrismMesh_dby1b")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D/OtherSide"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 0.75, 0.25)
@@ -271,7 +297,31 @@ transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.08715569, 0.9961947, 0, -0.9961947, 0.08715569, 0, 0, -52.563854)
+visible = false
 mesh = SubResource("QuadMesh_u7d2c")
+
+[node name="downstair window large" parent="." instance=ExtResource("7_dby1b")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, -1.2681451, 0.50300026, -2.3767793)
+
+[node name="downstair window large4" parent="." instance=ExtResource("7_dby1b")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, -2.7283397, 0.50300026, -0.4767793)
+
+[node name="downstair window large5" parent="." instance=ExtResource("7_dby1b")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 2.1716604, 0.50300026, -0.4767793)
+
+[node name="downstair window large2" parent="." instance=ExtResource("7_dby1b")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, -0.26814508, 0.50300026, -2.3767793)
+
+[node name="downstair window large3" parent="." instance=ExtResource("7_dby1b")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0.7318549, 0.50300026, -2.3767793)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -18, 4.1, -20.7)
+texture = ExtResource("8_u7d2c")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 17, 4.1, -20.7)
+texture = ExtResource("8_u7d2c")
 
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]
 [connection signal="body_entered" from="Stairs" to="Camera3D" method="_on_area_3d_body_entered"]

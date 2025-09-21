@@ -7,6 +7,8 @@ extends Area3D
 @onready var object: Sprite3D = $Object
 @onready var letter: Sprite3D = $Letter
 
+@export var letter_key: String
+
 var valid : bool = false
 
 func _ready() -> void:
@@ -28,4 +30,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		letter.show()
 		Global.find_letter(letter_var)
 		await get_tree().create_timer(2.0).timeout
+		Global.find_letter(letter_key)
 		letter.hide()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://s2tq53g804gb"]
+[gd_scene load_steps=6 format=3 uid="uid://s2tq53g804gb"]
 
 [ext_resource type="Script" uid="uid://dpkyeejvar8m2" path="res://UI/pause_menu.gd" id="1_46rli"]
 [ext_resource type="Texture2D" uid="uid://dx2sayb821myu" path="res://UI/IMG/our-history-hero.png" id="2_wmf7b"]
 [ext_resource type="Script" uid="uid://cyu3xat0a8uu5" path="res://UI/randomtext.gd" id="2_xcbig"]
+[ext_resource type="Texture2D" uid="uid://bgtlq3cwuntmg" path="res://Fart/Untitled_Artworkmurderer.png" id="3_mjgyq"]
 [ext_resource type="AudioStream" uid="uid://crsmvpwfosohv" path="res://sounds/Success.mp3" id="4_wmf7b"]
 
 [node name="Intro" type="Control"]
@@ -20,12 +21,18 @@ position = Vector2(266.4948, 327.37503)
 scale = Vector2(1.2229493, 1.2229494)
 texture = ExtResource("2_wmf7b")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(870, 197.99998)
+scale = Vector2(0.18759556, 0.16935584)
+texture = ExtResource("3_mjgyq")
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 383.0
 offset_top = 17.0
 offset_right = 806.0
 offset_bottom = 84.0
+theme_override_colors/default_color = Color(0.8509804, 0.33333334, 0.30588236, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -39,22 +46,13 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 370.0
-offset_top = 549.0
-offset_right = 743.0
-offset_bottom = 580.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Play
-"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 84.0
-offset_right = 1081.0
-offset_bottom = 534.0
+offset_right = 744.0
+offset_bottom = 708.0
+theme_override_colors/default_color = Color(0.8498145, 0.33443585, 0.30527213, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 4
 theme_override_font_sizes/normal_font_size = 28
@@ -69,6 +67,16 @@ These sentences that appeared among the items you picked up on the ground… I f
 It looks like there might be another conspiracy hidden behind this case…"
 fit_content = true
 script = ExtResource("2_xcbig")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 599.0
+offset_right = 890.0
+offset_bottom = 630.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Quit
+"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_wmf7b")

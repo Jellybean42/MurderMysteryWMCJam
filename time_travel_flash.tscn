@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c815iyftye8qm"]
+
+[ext_resource type="Script" uid="uid://bls3nsearx1yk" path="res://time_travel_flash.gd" id="1_76q4m"]
+
+[node name="time_travel_flash" type="ColorRect"]
+script = ExtResource("1_76q4m")

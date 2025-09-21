@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://s2tq53g804gb"]
+[gd_scene load_steps=4 format=3 uid="uid://s2tq53g804gb"]
 
 [ext_resource type="Script" uid="uid://dpkyeejvar8m2" path="res://UI/pause_menu.gd" id="1_46rli"]
+[ext_resource type="Texture2D" uid="uid://dx2sayb821myu" path="res://UI/IMG/our-history-hero.png" id="2_wmf7b"]
 [ext_resource type="Script" uid="uid://cyu3xat0a8uu5" path="res://UI/randomtext.gd" id="2_xcbig"]
 
 [node name="Intro" type="Control"]
@@ -13,6 +14,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_46rli")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(266.4948, 327.37503)
+scale = Vector2(1.2229493, 1.2229494)
+texture = ExtResource("2_wmf7b")
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 383.0
@@ -22,6 +28,7 @@ offset_bottom = 84.0
 theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
 theme_override_font_sizes/normal_font_size = 48
 text = "Congratulations!!! 
 "
@@ -47,6 +54,8 @@ offset_left = 96.0
 offset_top = 84.0
 offset_right = 1081.0
 offset_bottom = 534.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
 theme_override_font_sizes/normal_font_size = 28
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true

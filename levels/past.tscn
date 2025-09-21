@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b33mnik144wn3"]
+[gd_scene load_steps=20 format=3 uid="uid://b33mnik144wn3"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_vf273"]
 [ext_resource type="PackedScene" uid="uid://cg1kiipte0wg2" path="res://PlayerControllerDemo/player.tscn" id="2_rm17p"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bt5sstbgqtpr0" path="res://Interaction/objects/cross.jpg" id="10_4yw7v"]
 [ext_resource type="Texture2D" uid="uid://bachqo8gvnq72" path="res://Interaction/letters/Screenshot 2025-09-20 182138.png" id="11_128tk"]
 [ext_resource type="Texture2D" uid="uid://cuq2c48r612gg" path="res://Interaction/letters/Screenshot 2025-09-20 182142.png" id="12_8tse8"]
+[ext_resource type="PackedScene" uid="uid://q1beou0o5bvn" path="res://UI/CluesBook.tscn" id="14_8tse8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ml523"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -109,16 +110,22 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06144166, 0.014714122, -2.0845528)
 object_tex = ExtResource("10_4yw7v")
 letter_tex = ExtResource("11_128tk")
+letter_var = "D"
 
 [node name="cross_a" parent="." instance=ExtResource("9_vcvxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0614417, 0.014714122, -0.08455273)
 object_tex = ExtResource("10_4yw7v")
 letter_tex = ExtResource("12_8tse8")
+letter_var = "A"
 
 [node name="cross_d2" parent="." instance=ExtResource("9_vcvxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3385583, 0.014714122, -0.98455286)
 object_tex = ExtResource("10_4yw7v")
 letter_tex = ExtResource("11_128tk")
+letter_var = "D2"
+
+[node name="CluesBook" parent="." instance=ExtResource("14_8tse8")]
+visible = false
 
 [connection signal="body_entered" from="Downstairs" to="Downstairs" method="_on_body_entered"]
 [connection signal="body_exited" from="Downstairs" to="Downstairs" method="_on_body_exited"]

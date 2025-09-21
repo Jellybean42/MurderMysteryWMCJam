@@ -17,3 +17,7 @@ func _ready():
 	var letters = "ADDBADHUMOURFUN"
 	for letter in letters:
 		add_letter(letter)
+
+func find_letter(key: String) -> void:
+	letter_flags[key] = true
+	print(key)

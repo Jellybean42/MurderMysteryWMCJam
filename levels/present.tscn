@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwpq7ftaeywcp"]
+[gd_scene load_steps=17 format=3 uid="uid://cwpq7ftaeywcp"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_ml523"]
 [ext_resource type="PackedScene" uid="uid://ro5l25gmnmgr" path="res://rooms/upper_floor_present.tscn" id="2_viv30"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c815iyftye8qm" path="res://time_travel_flash.tscn" id="8_m0kh0"]
 [ext_resource type="AudioStream" uid="uid://ds808u2ner2tc" path="res://sounds/WalkUpStairs.mp3" id="8_ujrt8"]
 [ext_resource type="PackedScene" uid="uid://djuclm5kkealv" path="res://Interaction/dead_body.tscn" id="9_q8rcl"]
+[ext_resource type="PackedScene" uid="uid://q1beou0o5bvn" path="res://UI/CluesBook.tscn" id="11_lvjbi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ml523"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -104,6 +105,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DeadBody" parent="." instance=ExtResource("9_q8rcl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048717618, 0.003183782, -0.6570243)
+
+[node name="CluesBook" parent="." instance=ExtResource("11_lvjbi")]
+visible = false
 
 [connection signal="body_entered" from="Downstairs" to="Downstairs" method="_on_body_entered"]
 [connection signal="body_exited" from="Downstairs" to="Downstairs" method="_on_body_exited"]

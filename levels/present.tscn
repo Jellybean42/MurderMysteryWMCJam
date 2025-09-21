@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://h8k8bn5mjibe" path="res://painting.jpeg" id="6_1rin7"]
 [ext_resource type="Texture2D" uid="uid://c4h44ylpxvbv5" path="res://Interaction/letters/Screenshot 2025-09-20 182107.png" id="6_28gcu"]
 [ext_resource type="Script" uid="uid://clsjcklyaqv01" path="res://levels/stairs.gd" id="7_1rin7"]
-[ext_resource type="Texture2D" uid="uid://c6feqr6mtnb7" path="res://Interaction/objects/crest.jpg" id="7_vhb3k"]
+[ext_resource type="Texture2D" uid="uid://bq34pr28xfyk6" path="res://Fart/Candybear.png" id="7_3381i"]
 [ext_resource type="Texture2D" uid="uid://cnmetsarlq7m1" path="res://Interaction/letters/Screenshot 2025-09-20 182046.png" id="8_6hsjy"]
 [ext_resource type="PackedScene" uid="uid://c815iyftye8qm" path="res://time_travel_flash.tscn" id="8_m0kh0"]
 [ext_resource type="AudioStream" uid="uid://ds808u2ner2tc" path="res://sounds/WalkUpStairs.mp3" id="8_ujrt8"]
@@ -70,7 +70,7 @@ letter_var = "U"
 
 [node name="Collectable6" parent="Room1" instance=ExtResource("13_x12vd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86144185, 1.94413, 0.2154473)
-object_tex = ExtResource("7_vhb3k")
+object_tex = ExtResource("7_3381i")
 letter_tex = ExtResource("8_6hsjy")
 letter_var = "M"
 

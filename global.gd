@@ -2,7 +2,7 @@ extends Node
 
 var player_transform: Transform3D
 var letter_flags: Dictionary[String, bool] = {}
-
+var introd: bool = false
 # Adds a key, automatically incrementing duplicates
 func add_letter(letter: String, value: bool = false) -> void:
 	var new_key = letter
@@ -20,3 +20,9 @@ func _ready():
 		
 func find_letter(key: String) -> void:
 	letter_flags[key] = true
+	
+	for l in letter_flags:
+		if(!letter_flags[l]):
+			return
+	var game_scene = load("res://UI/WinScreen.tscn")
+	get_tree().change_scene_to_packed(game_scene)

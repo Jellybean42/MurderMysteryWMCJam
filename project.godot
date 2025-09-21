@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 Inventory="*res://Interaction/Inventory.gd"
 Interaction="*res://Interaction/Interaction.gd"
 Global="*res://global.gd"
-Music="*res://UI/Music.tscn"
 
 [editor]
 

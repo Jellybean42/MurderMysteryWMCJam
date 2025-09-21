@@ -29,6 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().get_first_node_in_group("player").collect()
 		letter.show()
 		Global.find_letter(letter_var)
+		if not is_inside_tree():
+			return
 		await get_tree().create_timer(2.0).timeout
 		Global.find_letter(letter_key)
 		letter.hide()

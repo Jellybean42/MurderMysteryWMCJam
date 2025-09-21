@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddf8oqvfj8aue"]
+[gd_scene load_steps=4 format=3 uid="uid://ddf8oqvfj8aue"]
 
 [ext_resource type="Script" uid="uid://cjro74waq8d3t" path="res://main_menu.gd" id="1_p8ccj"]
 [ext_resource type="Texture2D" uid="uid://crsxwndnhi413" path="res://UI/IMG/Church.png" id="2_tk8dj"]
+[ext_resource type="AudioStream" uid="uid://bafirgsawmcpt" path="res://UI/Rising Game.mp3" id="3_d8nwk"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -67,6 +68,11 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d8nwk")
+autoplay = true
+parameters/looping = true
 
 [connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/Button2" to="." method="_on_button_2_button_up"]

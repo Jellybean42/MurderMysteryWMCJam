@@ -10,17 +10,17 @@
 [ext_resource type="AudioStream" uid="uid://ds808u2ner2tc" path="res://sounds/WalkUpStairs.mp3" id="8_128tk"]
 [ext_resource type="PackedScene" uid="uid://c815iyftye8qm" path="res://time_travel_flash.tscn" id="8_qsa5n"]
 [ext_resource type="PackedScene" uid="uid://c3e2bavaxqkxn" path="res://Interaction/collectable.tscn" id="9_vcvxw"]
-[ext_resource type="Texture2D" uid="uid://bt5sstbgqtpr0" path="res://Interaction/objects/cross.jpg" id="10_4yw7v"]
 [ext_resource type="Texture2D" uid="uid://bachqo8gvnq72" path="res://Interaction/letters/Screenshot 2025-09-20 182138.png" id="11_128tk"]
+[ext_resource type="Texture2D" uid="uid://d3mxygjgybfe3" path="res://Fart/cross.png" id="11_pe6h1"]
+[ext_resource type="Texture2D" uid="uid://orneedexj4yo" path="res://Fart/book.png" id="13_pe6h1"]
 [ext_resource type="PackedScene" uid="uid://q1beou0o5bvn" path="res://UI/CluesBook.tscn" id="14_8tse8"]
-[ext_resource type="Texture2D" uid="uid://dn42qnamyoeei" path="res://Interaction/objects/book.jpg" id="14_e300k"]
-[ext_resource type="Texture2D" uid="uid://rcxpoa7qga1i" path="res://Interaction/objects/cane.jpg" id="15_170qd"]
 [ext_resource type="Texture2D" uid="uid://bjm3hyd1k3ic" path="res://Interaction/letters/Screenshot 2025-09-20 182135.png" id="15_uf7cc"]
+[ext_resource type="Texture2D" uid="uid://dtbs5hk4336rm" path="res://Fart/candycane.png" id="16_dswg4"]
 [ext_resource type="Texture2D" uid="uid://cnq86mawfxxfn" path="res://Interaction/letters/Screenshot 2025-09-20 182146.png" id="16_qvec6"]
-[ext_resource type="Texture2D" uid="uid://cuhnkxh7wvigi" path="res://Interaction/objects/violet.jpg" id="17_pe6h1"]
 [ext_resource type="Texture2D" uid="uid://bfvd73qpskpcd" path="res://Interaction/letters/Screenshot 2025-09-20 182154.png" id="18_dswg4"]
-[ext_resource type="Texture2D" uid="uid://m253oiok30wy" path="res://Interaction/objects/sweet.jpg" id="19_u4mcu"]
+[ext_resource type="Texture2D" uid="uid://xdu6r56qrx1g" path="res://Fart/longsweet.png" id="18_u4mcu"]
 [ext_resource type="Texture2D" uid="uid://8mbvwwnywvku" path="res://Interaction/letters/Screenshot 2025-09-20 182157.png" id="20_bhm8q"]
+[ext_resource type="Texture2D" uid="uid://cdfdyepjqx1oa" path="res://camera/candy.png" id="20_xw6pg"]
 [ext_resource type="AudioStream" uid="uid://sw0nqvx0v3hx" path="res://sounds/Magic Escape Room.mp3" id="21_qvec6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ml523"]
@@ -115,20 +115,20 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="cross_d" parent="." instance=ExtResource("9_vcvxw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06144166, 0.014714122, -2.0845528)
-object_tex = ExtResource("10_4yw7v")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06144166, 0.11440134, -2.0845528)
+object_tex = ExtResource("11_pe6h1")
 letter_tex = ExtResource("11_128tk")
 letter_var = "D"
 
 [node name="Collectable4" parent="." instance=ExtResource("9_vcvxw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6385583, 0.014714122, -0.08455273)
-object_tex = ExtResource("14_e300k")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6385583, 0.11440134, -0.08455273)
+object_tex = ExtResource("13_pe6h1")
 letter_tex = ExtResource("15_uf7cc")
 letter_var = "H"
 
 [node name="cross_d2" parent="." instance=ExtResource("9_vcvxw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3385583, 0.014714122, -0.98455286)
-object_tex = ExtResource("10_4yw7v")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3385583, 0.11440134, -0.98455286)
+object_tex = ExtResource("11_pe6h1")
 letter_tex = ExtResource("11_128tk")
 letter_var = "D2"
 letter_key = "D2"
@@ -136,26 +136,25 @@ letter_key = "D2"
 [node name="CluesBook" parent="." instance=ExtResource("14_8tse8")]
 
 [node name="Collectable" parent="." instance=ExtResource("9_vcvxw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1916002, 1.6999999, -0.18676396)
-object_tex = ExtResource("15_170qd")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1916002, 1.7996871, -0.18676396)
+object_tex = ExtResource("16_dswg4")
 letter_tex = ExtResource("16_qvec6")
 letter_var = "B"
 
 [node name="Collectable2" parent="." instance=ExtResource("9_vcvxw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6084, 1.6999999, -0.18676396)
-object_tex = ExtResource("17_pe6h1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6084, 1.7996871, -0.18676396)
+object_tex = ExtResource("18_u4mcu")
 letter_tex = ExtResource("18_dswg4")
 letter_var = "A2"
 
 [node name="Collectable3" parent="." instance=ExtResource("9_vcvxw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4733714, 1.6999999, 0.51323605)
-object_tex = ExtResource("19_u4mcu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4733714, 1.7996871, 0.51323605)
+object_tex = ExtResource("20_xw6pg")
 letter_tex = ExtResource("20_bhm8q")
 letter_var = "D3"
 
 [node name="music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("21_qvec6")
-volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="Downstairs" to="Downstairs" method="_on_body_entered"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ut86v7ah2fm"]
+
+[ext_resource type="AudioStream" uid="uid://bafirgsawmcpt" path="res://UI/Rising Game.mp3" id="1_cdlux"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_cdlux")
+autoplay = true
+parameters/looping = true

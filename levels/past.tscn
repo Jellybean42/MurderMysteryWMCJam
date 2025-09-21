@@ -155,6 +155,7 @@ letter_var = "D3"
 
 [node name="music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("21_qvec6")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="Downstairs" to="Downstairs" method="_on_body_entered"]

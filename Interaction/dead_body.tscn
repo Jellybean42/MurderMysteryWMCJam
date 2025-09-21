@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://djuclm5kkealv"]
+[gd_scene load_steps=7 format=3 uid="uid://djuclm5kkealv"]
 
 [ext_resource type="Texture2D" uid="uid://br67kro621lku" path="res://John_no_bg.png" id="1_x0w8s"]
 [ext_resource type="PackedScene" uid="uid://c3e2bavaxqkxn" path="res://Interaction/collectable.tscn" id="2_2kafh"]
 [ext_resource type="Texture2D" uid="uid://c8knqqqls5v6h" path="res://Interaction/letters/Screenshot 2025-09-20 182120.png" id="3_2kafh"]
 [ext_resource type="Texture2D" uid="uid://d2fw6jpp6i5k1" path="res://Interaction/letters/Screenshot 2025-09-20 182131.png" id="4_lh0oi"]
 [ext_resource type="Texture2D" uid="uid://cq6p8t1gal7m5" path="res://Interaction/letters/Screenshot 2025-09-20 182128.png" id="5_46yxa"]
+[ext_resource type="PackedScene" uid="uid://bluwxqberxus7" path="res://cone.tscn" id="6_lh0oi"]
 
 [node name="DeadBody" type="Node3D"]
 
@@ -23,3 +24,12 @@ letter_tex = ExtResource("4_lh0oi")
 [node name="Collectable3" parent="." instance=ExtResource("2_2kafh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55060065, 0, 0.3721314)
 letter_tex = ExtResource("5_46yxa")
+
+[node name="Cone" parent="." instance=ExtResource("6_lh0oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59999996, 0, -0.2)
+
+[node name="Cone2" parent="." instance=ExtResource("6_lh0oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.4)
+
+[node name="Cone3" parent="." instance=ExtResource("6_lh0oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100000024, 0, -0.1)

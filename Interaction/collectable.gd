@@ -22,9 +22,11 @@ func _on_body_entered(body: Node3D) -> void:
 func _on_body_exited(body: Node3D) -> void:
 	valid = false
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and valid:
+		get_tree().get_first_node_in_group("player").collect()
 		letter.show()
+		await get_tree().create_timer(2.0).timeout
 		Global.find_letter(letter_key)
-		await get_tree().create_timer(1.0).timeout
 		letter.hide()

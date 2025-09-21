@@ -1,12 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://cwpq7ftaeywcp"]
+[gd_scene load_steps=31 format=3 uid="uid://cwpq7ftaeywcp"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_ml523"]
 [ext_resource type="PackedScene" uid="uid://ro5l25gmnmgr" path="res://rooms/upper_floor_present.tscn" id="2_viv30"]
+[ext_resource type="Texture2D" uid="uid://bt5sstbgqtpr0" path="res://Interaction/objects/cross.jpg" id="3_e0jso"]
 [ext_resource type="PackedScene" uid="uid://cg1kiipte0wg2" path="res://PlayerControllerDemo/player.tscn" id="3_tccxb"]
+[ext_resource type="Texture2D" uid="uid://cuq2c48r612gg" path="res://Interaction/letters/Screenshot 2025-09-20 182142.png" id="4_3381i"]
 [ext_resource type="Script" uid="uid://cqsp35p50u5jw" path="res://PlayerControllerDemo/player_camera.gd" id="4_viv30"]
+[ext_resource type="Texture2D" uid="uid://465uli1tood4" path="res://Interaction/objects/choco.jpg" id="5_2i4nn"]
 [ext_resource type="Script" uid="uid://bjyy7q2yuk4yd" path="res://levels/painting.gd" id="5_ve62j"]
 [ext_resource type="Texture2D" uid="uid://h8k8bn5mjibe" path="res://painting.jpeg" id="6_1rin7"]
+[ext_resource type="Texture2D" uid="uid://c4h44ylpxvbv5" path="res://Interaction/letters/Screenshot 2025-09-20 182107.png" id="6_28gcu"]
 [ext_resource type="Script" uid="uid://clsjcklyaqv01" path="res://levels/stairs.gd" id="7_1rin7"]
+[ext_resource type="Texture2D" uid="uid://c6feqr6mtnb7" path="res://Interaction/objects/crest.jpg" id="7_vhb3k"]
+[ext_resource type="Texture2D" uid="uid://cnmetsarlq7m1" path="res://Interaction/letters/Screenshot 2025-09-20 182046.png" id="8_6hsjy"]
 [ext_resource type="PackedScene" uid="uid://c815iyftye8qm" path="res://time_travel_flash.tscn" id="8_m0kh0"]
 [ext_resource type="AudioStream" uid="uid://ds808u2ner2tc" path="res://sounds/WalkUpStairs.mp3" id="8_ujrt8"]
 [ext_resource type="PackedScene" uid="uid://djuclm5kkealv" path="res://Interaction/dead_body.tscn" id="9_q8rcl"]
@@ -48,6 +54,24 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Room1" parent="." instance=ExtResource("1_ml523")]
+
+[node name="cross_a" parent="Room1" instance=ExtResource("13_x12vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0614417, 1.7147142, -0.08455273)
+object_tex = ExtResource("3_e0jso")
+letter_tex = ExtResource("4_3381i")
+letter_var = "A"
+
+[node name="Collectable5" parent="Room1" instance=ExtResource("13_x12vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1385584, 1.7147142, 0.7154473)
+object_tex = ExtResource("5_2i4nn")
+letter_tex = ExtResource("6_28gcu")
+letter_var = "U"
+
+[node name="Collectable6" parent="Room1" instance=ExtResource("13_x12vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86144185, 1.7147142, 0.2154473)
+object_tex = ExtResource("7_vhb3k")
+letter_tex = ExtResource("8_6hsjy")
+letter_var = "M"
 
 [node name="Player" parent="." instance=ExtResource("3_tccxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.411258, 0, -0.11041398)

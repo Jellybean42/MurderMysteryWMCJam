@@ -1,5 +1,5 @@
 extends RichTextLabel
-
+#regit
 @export var letters: Array[String] = []
 @export var startI: int
 

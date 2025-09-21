@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw6bglykgtbrc"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4ievp"]
+top_radius = 0.2
+bottom_radius = 0.1
+height = 0.5
+
+[node name="Sconce" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_4ievp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.3, 0)
+light_energy = 0.1
+omni_range = 1.0

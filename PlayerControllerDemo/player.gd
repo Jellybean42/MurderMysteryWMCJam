@@ -9,6 +9,9 @@ extends CharacterBody3D
 @export var min_z: float = -3.0
 @export var max_z: float =  3.0
 
+@onready var walk_audio: AudioStreamPlayer3D = $walk_audio
+@onready var collect_audio: AudioStreamPlayer3D = $collect_audio
+
 var facing_angle: float = 0.0  # Track rotation in degrees
 
 func _physics_process(delta: float) -> void:
@@ -59,3 +62,7 @@ func _ready() -> void:
 	add_to_group("player")   # 确保玩家在 'player' 组（也可在编辑器里加）
 	if Global.player_transform:
 		global_transform = Global.player_transform
+		
+
+func collect():
+	collect_audio.play()

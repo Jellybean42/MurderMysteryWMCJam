@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bny5tfe4xf5j1"]
+[gd_scene load_steps=18 format=3 uid="uid://bny5tfe4xf5j1"]
 
 [ext_resource type="Script" uid="uid://dmd5b0jkwxljv" path="res://rooms/room_1.gd" id="1_rnj2d"]
 [ext_resource type="Material" uid="uid://dte15qjjirtvh" path="res://wood_panels.tres" id="2_dngkx"]
 [ext_resource type="Material" uid="uid://g8tvlyrsl57n" path="res://upper_floor_present.tres" id="2_m1sog"]
 [ext_resource type="PackedScene" uid="uid://biniydtbfpr77" path="res://camera/camera_3d.tscn" id="2_olrdv"]
+[ext_resource type="PackedScene" uid="uid://cw6bglykgtbrc" path="res://sconce.tscn" id="5_m1sog"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s102h"]
 size = Vector3(7, 5, 2)
@@ -18,13 +19,19 @@ size = Vector3(2, 2, 1.6)
 size = Vector3(4.4, 2, 3.6000001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rnj2d"]
-size = Vector3(1.1, 2, 2)
+size = Vector3(1.1, 2, 1.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dngkx"]
 size = Vector3(1.1, 2, 1.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1sog"]
-size = Vector3(1, 2, 1)
+size = Vector3(1, 2, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hkfnh"]
+size = Vector3(0.4, 2, 1.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6lmnr"]
+size = Vector3(0.1, 2, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kmcul"]
 size = Vector3(1.1, 2, 1)
@@ -40,7 +47,7 @@ input_ray_pickable = false
 script = ExtResource("1_rnj2d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.5, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.5, 0.5)
 material_override = ExtResource("2_m1sog")
 mesh = SubResource("BoxMesh_s102h")
 
@@ -52,7 +59,7 @@ mesh = SubResource("BoxMesh_2otyv")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 0.75, -0.5024303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 0.75, -0.60243034)
 size = Vector3(1.1, 1.5, 0.2)
 material = ExtResource("2_dngkx")
 
@@ -84,24 +91,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.14999998, 0)
 size = Vector3(0.5, 0.75, 1)
 
 [node name="MainSide" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 1.2)
 size = Vector3(6, 1.5, 0.2)
 material = ExtResource("2_dngkx")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0.75, -1.5500001)
-size = Vector3(2.1000001, 1.5, 0.2)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0.75, -1.6500001)
+size = Vector3(1.9, 1.5, 0.2)
 material = ExtResource("2_dngkx")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0.75, -1.5999999)
-size = Vector3(2, 1.5, 0.2)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0.75, -1.6499999)
+size = Vector3(1.9, 1.5, 0.2)
 material = ExtResource("2_dngkx")
 
 [node name="OtherSide" type="Node3D" parent="CSGCombiner3D"]
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D/OtherSide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 0.65, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 0.65, -0.6)
 size = Vector3(1.1, 1.7, 0.2)
 material = ExtResource("2_dngkx")
 
@@ -118,8 +125,8 @@ size = Vector3(1.7, 1.5, 0.2)
 material = ExtResource("2_dngkx")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0.65, 0.19999999)
-size = Vector3(1.4, 1.7, 0.2)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0.65, 0.29999995)
+size = Vector3(1.6, 1.7, 0.2)
 material = ExtResource("2_dngkx")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCombiner3D/CSGBox3D8"]
@@ -135,12 +142,12 @@ size = Vector3(1.6, 1.5, 0.2)
 material = ExtResource("2_dngkx")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.55, 0.75, -0.5)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.55, 0.75, -0.6)
 size = Vector3(1.1, 1.5, 0.2)
 material = ExtResource("2_dngkx")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.5, 0.75, 1)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.5, 0.75, 1.2)
 size = Vector3(1, 1.5, 0.2)
 material = ExtResource("2_dngkx")
 
@@ -163,6 +170,42 @@ input_ray_pickable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1159668, -0.5, 0.3)
 shape = SubResource("BoxShape3D_2otyv")
 
+[node name="CSGBox3D" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -1.4, 0.15000004)
+size = Vector3(0.4, 1, 0.1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -1.3, 0.25000003)
+size = Vector3(0.4, 1, 0.1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -1.1999999, 0.35000002)
+size = Vector3(0.4, 1, 0.1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -1.0999999, 0.45000002)
+size = Vector3(0.4, 1, 0.1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -0.9999999, 0.55)
+size = Vector3(0.4, 1, 0.1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -0.89999986, 0.65000004)
+size = Vector3(0.4, 1, 0.1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -0.79999983, 0.75000006)
+size = Vector3(0.4, 1, 0.1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -0.79999983, 0.8500001)
+size = Vector3(0.4, 1, 0.1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -0.7499998, 0.8500001)
+size = Vector3(0.4, 1.1, 0.1)
+
 [node name="Room" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 input_ray_pickable = false
@@ -172,7 +215,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, -0.5, -0.6999999)
 shape = SubResource("BoxShape3D_olrdv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.5, -1.4000003)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.5, -1.4500003)
 shape = SubResource("BoxShape3D_rnj2d")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
@@ -180,15 +223,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4159667, 0.5, -0.050000012
 shape = SubResource("BoxShape3D_dngkx")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.584033, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.584033, 0.5, 0.3)
 shape = SubResource("BoxShape3D_m1sog")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.684033, 0.5, 0.65000004)
+shape = SubResource("BoxShape3D_hkfnh")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8840327, 0.5, -0.25)
+shape = SubResource("BoxShape3D_6lmnr")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8840327, 0.5, 0.85)
+shape = SubResource("BoxShape3D_6lmnr")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.534033, 0.5, -1)
 shape = SubResource("BoxShape3D_kmcul")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4340332, 0.5, -1.4000001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4340332, 0.5, -1.5000001)
 shape = SubResource("BoxShape3D_rnj2d")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
@@ -198,6 +253,12 @@ shape = SubResource("BoxShape3D_dby1b")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.48403323, 0.5, 1.5000002)
 shape = SubResource("BoxShape3D_u7d2c")
+
+[node name="Sconce" parent="." instance=ExtResource("5_m1sog")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.9000001, 0.8, -1.3000001)
+
+[node name="Sconce2" parent="." instance=ExtResource("5_m1sog")]
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 1.8999999, 0.8, -1.3000001)
 
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]
 [connection signal="body_entered" from="Stairs" to="Camera3D" method="_on_area_3d_body_entered"]

@@ -3,6 +3,7 @@ extends Area3D
 @export var marker : Marker3D
 
 @onready var player: CharacterBody3D = $"../Player"
+@onready var stepping: AudioStreamPlayer3D = $"../Upstairs/stepping"
 
 var valid : bool = false
 
@@ -19,3 +20,4 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and valid:
 		print(marker)
 		player.global_position = marker.global_position
+		stepping.play()

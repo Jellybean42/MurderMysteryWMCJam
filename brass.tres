@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cgj3bru7p5jr0"]
+
+[ext_resource type="Texture2D" uid="uid://cybcngny350bi" path="res://textures/brushed-brass-2000-mm-architextures.jpg" id="1_kd0mr"]
+
+[resource]
+albedo_texture = ExtResource("1_kd0mr")
+metallic = 1.0
+emission_enabled = true
+uv1_triplanar = true

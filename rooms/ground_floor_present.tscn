@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bny5tfe4xf5j1"]
+[gd_scene load_steps=21 format=3 uid="uid://bny5tfe4xf5j1"]
 
 [ext_resource type="Script" uid="uid://dmd5b0jkwxljv" path="res://rooms/room_1.gd" id="1_rnj2d"]
 [ext_resource type="Material" uid="uid://dte15qjjirtvh" path="res://wood_panels.tres" id="2_dngkx"]
 [ext_resource type="Material" uid="uid://g8tvlyrsl57n" path="res://upper_floor_present.tres" id="2_m1sog"]
 [ext_resource type="PackedScene" uid="uid://biniydtbfpr77" path="res://camera/camera_3d.tscn" id="2_olrdv"]
 [ext_resource type="PackedScene" uid="uid://cw6bglykgtbrc" path="res://sconce.tscn" id="5_m1sog"]
+[ext_resource type="Texture2D" uid="uid://dxpyfmylcpu1o" path="res://textures/artificial-grass-1498-mm-architextures.jpg" id="6_kmcul"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s102h"]
 size = Vector3(7, 5, 2)
@@ -41,6 +42,14 @@ size = Vector3(1, 2, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u7d2c"]
 size = Vector3(1, 2, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dby1b"]
+albedo_texture = ExtResource("6_kmcul")
+uv1_triplanar = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_u7d2c"]
+material = SubResource("StandardMaterial3D_dby1b")
+size = Vector2(200, 100)
 
 [node name="Room1" type="StaticBody3D"]
 input_ray_pickable = false
@@ -255,10 +264,14 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.48
 shape = SubResource("BoxShape3D_u7d2c")
 
 [node name="Sconce" parent="." instance=ExtResource("5_m1sog")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.9000001, 0.8, -1.3000001)
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, -1.9000001, 0.8, -1.3000001)
 
 [node name="Sconce2" parent="." instance=ExtResource("5_m1sog")]
-transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 1.8999999, 0.8, -1.3000001)
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 1.8999999, 0.8, -1.3000001)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.08715569, 0.9961947, 0, -0.9961947, 0.08715569, 0, 0, -52.563854)
+mesh = SubResource("QuadMesh_u7d2c")
 
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]
 [connection signal="body_entered" from="Stairs" to="Camera3D" method="_on_area_3d_body_entered"]

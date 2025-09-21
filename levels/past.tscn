@@ -56,7 +56,7 @@ script = ExtResource("3_8js7g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Painting" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5425344, 2.5640998, -0.39451104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4425344, 2.5640998, -0.49451104)
 script = ExtResource("5_8js7g")
 target_scene_path = "uid://cwpq7ftaeywcp"
 

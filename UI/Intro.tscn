@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ft7q12pj10w"]
+
+[ext_resource type="Script" uid="uid://dpkyeejvar8m2" path="res://UI/pause_menu.gd" id="1_jlf4g"]
+[ext_resource type="Script" uid="uid://cyu3xat0a8uu5" path="res://UI/randomtext.gd" id="2_icjyy"]
+
+[node name="Intro" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jlf4g")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 53.0
+offset_right = 759.0
+offset_bottom = 120.0
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+text = "Murder Mystery"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 549.0
+offset_right = 743.0
+offset_bottom = 580.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Play
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 158.0
+offset_right = 1076.0
+offset_bottom = 383.0
+theme_override_font_sizes/normal_font_size = 32
+text = "On September 19, 2022, a horrifying locked-room murder took place at the Norwegian Church. After the crime, the murderer mysteriously disappeared. The case became unsolved and the files were sealed.
+The player takes the role of an intern private detective.
+
+Click the left mouse button / press \"E\" to interact with objects, and press \"TAB\" to open the notebook."
+fit_content = true
+script = ExtResource("2_icjyy")
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

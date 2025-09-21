@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2tq53g804gb"]
+
+[ext_resource type="Script" uid="uid://dpkyeejvar8m2" path="res://UI/pause_menu.gd" id="1_46rli"]
+[ext_resource type="Script" uid="uid://cyu3xat0a8uu5" path="res://UI/randomtext.gd" id="2_xcbig"]
+
+[node name="Intro" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_46rli")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 17.0
+offset_right = 806.0
+offset_bottom = 84.0
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+text = "Congratulations!!! 
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 549.0
+offset_right = 743.0
+offset_bottom = 580.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Play
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 84.0
+offset_right = 1081.0
+offset_bottom = 534.0
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "You’ve solved this strange murder case in the church.
+
+But what exactly are the two timelines you traveled through via the church painting?
+
+These sentences that appeared among the items you picked up on the ground… I feel like I’ve seen them somewhere before. They seem to belong to [b]Roald Dahl[/b], the writer who has a deep connection with this church.
+
+It looks like there might be another conspiracy hidden behind this case…"
+fit_content = true
+script = ExtResource("2_xcbig")
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

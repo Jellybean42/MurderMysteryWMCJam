@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var speed_side: float = 2.0   # fast
-@export var speed_depth: float = 1.0  # slow
+@export var speed_side: float = 1.0   # fast
+@export var speed_depth: float = 0.5  # slow
 
 # Bounds in world space
 @export var min_x: float = -5.0
@@ -11,6 +11,7 @@ extends CharacterBody3D
 
 @onready var walk_audio: AudioStreamPlayer3D = $walk_audio
 @onready var collect_audio: AudioStreamPlayer3D = $collect_audio
+@onready var animation: AnimatedSprite3D = $animation
 
 var facing_angle: float = 0.0  # Track rotation in degrees
 
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	global_position.x = clamp(global_position.x, min_x, max_x)
 	global_position.z = clamp(global_position.z, min_z, max_z)
 
-	# Rotate player + camera together
+	# Rotate player + camera together (duplicate from above – kept just in case you need it twice)
 	if Input.is_action_just_pressed("ui_select"):
 		facing_angle += 90.0
 		rotation_degrees.y = facing_angle
@@ -54,7 +55,28 @@ func _physics_process(delta: float) -> void:
 	if local_velocity != Vector3.ZERO:
 		var world_velocity := global_transform.basis * local_velocity
 		global_position += world_velocity * delta
-		#print_debug("moving to: ", global_position)  # ← 应该能看到输出
+
+	# --- Animation & Audio handling ---
+	if local_velocity != Vector3.ZERO:
+		# Switch to walking animation
+		if animation.animation != "walk":
+			animation.play("walk")
+		# Play walking audio
+		if not walk_audio.playing:
+			walk_audio.play()
+
+		# Flip sprite depending on movement direction
+		if local_velocity.x > 0:
+			animation.flip_h = true
+		elif local_velocity.x < 0:
+			animation.flip_h = false
+	else:
+		# Switch to idle animation
+		if animation.animation != "idle":
+			animation.play("idle")
+		# Stop walking audio
+		if walk_audio.playing:
+			walk_audio.stop()
 
 
 # Collection Interaction

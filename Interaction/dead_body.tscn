@@ -21,7 +21,7 @@ letter_var = "F"
 [node name="Collectable2" parent="." instance=ExtResource("2_2kafh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10152176, 0, -0.097866826)
 letter_tex = ExtResource("4_lh0oi")
-letter_var = "U"
+letter_var = "U3"
 
 [node name="Collectable3" parent="." instance=ExtResource("2_2kafh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55060065, 0, 0.3721314)

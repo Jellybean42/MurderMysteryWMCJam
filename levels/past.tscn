@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b33mnik144wn3"]
+[gd_scene load_steps=33 format=3 uid="uid://b33mnik144wn3"]
 
 [ext_resource type="PackedScene" uid="uid://bny5tfe4xf5j1" path="res://rooms/ground_floor_present.tscn" id="1_vf273"]
 [ext_resource type="PackedScene" uid="uid://cg1kiipte0wg2" path="res://PlayerControllerDemo/player.tscn" id="2_rm17p"]
@@ -14,6 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://bachqo8gvnq72" path="res://Interaction/letters/Screenshot 2025-09-20 182138.png" id="11_128tk"]
 [ext_resource type="Texture2D" uid="uid://cuq2c48r612gg" path="res://Interaction/letters/Screenshot 2025-09-20 182142.png" id="12_8tse8"]
 [ext_resource type="PackedScene" uid="uid://q1beou0o5bvn" path="res://UI/CluesBook.tscn" id="14_8tse8"]
+[ext_resource type="Texture2D" uid="uid://dn42qnamyoeei" path="res://Interaction/objects/book.jpg" id="14_e300k"]
+[ext_resource type="Texture2D" uid="uid://rcxpoa7qga1i" path="res://Interaction/objects/cane.jpg" id="15_170qd"]
+[ext_resource type="Texture2D" uid="uid://bjm3hyd1k3ic" path="res://Interaction/letters/Screenshot 2025-09-20 182135.png" id="15_uf7cc"]
+[ext_resource type="Texture2D" uid="uid://465uli1tood4" path="res://Interaction/objects/choco.jpg" id="16_og7br"]
+[ext_resource type="Texture2D" uid="uid://cnq86mawfxxfn" path="res://Interaction/letters/Screenshot 2025-09-20 182146.png" id="16_qvec6"]
+[ext_resource type="Texture2D" uid="uid://c4h44ylpxvbv5" path="res://Interaction/letters/Screenshot 2025-09-20 182107.png" id="17_14gtn"]
+[ext_resource type="Texture2D" uid="uid://cuhnkxh7wvigi" path="res://Interaction/objects/violet.jpg" id="17_pe6h1"]
+[ext_resource type="Texture2D" uid="uid://c6feqr6mtnb7" path="res://Interaction/objects/crest.jpg" id="18_7alyk"]
+[ext_resource type="Texture2D" uid="uid://bfvd73qpskpcd" path="res://Interaction/letters/Screenshot 2025-09-20 182154.png" id="18_dswg4"]
+[ext_resource type="Texture2D" uid="uid://m253oiok30wy" path="res://Interaction/objects/sweet.jpg" id="19_u4mcu"]
+[ext_resource type="Texture2D" uid="uid://cnmetsarlq7m1" path="res://Interaction/letters/Screenshot 2025-09-20 182046.png" id="19_wwm06"]
+[ext_resource type="Texture2D" uid="uid://8mbvwwnywvku" path="res://Interaction/letters/Screenshot 2025-09-20 182157.png" id="20_bhm8q"]
+[ext_resource type="AudioStream" uid="uid://sw0nqvx0v3hx" path="res://sounds/Magic Escape Room.mp3" id="21_qvec6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ml523"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -118,14 +131,54 @@ object_tex = ExtResource("10_4yw7v")
 letter_tex = ExtResource("12_8tse8")
 letter_var = "A"
 
+[node name="Collectable4" parent="." instance=ExtResource("9_vcvxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6385583, 0.014714122, -0.08455273)
+object_tex = ExtResource("14_e300k")
+letter_tex = ExtResource("15_uf7cc")
+letter_var = "H"
+
+[node name="Collectable5" parent="." instance=ExtResource("9_vcvxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1385584, 0.014714122, 0.7154473)
+object_tex = ExtResource("16_og7br")
+letter_tex = ExtResource("17_14gtn")
+letter_var = "U"
+
+[node name="Collectable6" parent="." instance=ExtResource("9_vcvxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86144185, 0.014714122, 0.2154473)
+object_tex = ExtResource("18_7alyk")
+letter_tex = ExtResource("19_wwm06")
+letter_var = "M"
+
 [node name="cross_d2" parent="." instance=ExtResource("9_vcvxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3385583, 0.014714122, -0.98455286)
 object_tex = ExtResource("10_4yw7v")
 letter_tex = ExtResource("11_128tk")
 letter_var = "D2"
+letter_key = "D2"
 
 [node name="CluesBook" parent="." instance=ExtResource("14_8tse8")]
-visible = false
+
+[node name="Collectable" parent="." instance=ExtResource("9_vcvxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99160016, 1.6999999, -0.38676396)
+object_tex = ExtResource("15_170qd")
+letter_tex = ExtResource("16_qvec6")
+letter_var = "B"
+
+[node name="Collectable2" parent="." instance=ExtResource("9_vcvxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6084, 1.6999999, -0.38676396)
+object_tex = ExtResource("17_pe6h1")
+letter_tex = ExtResource("18_dswg4")
+letter_var = "A2"
+
+[node name="Collectable3" parent="." instance=ExtResource("9_vcvxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4733714, 1.6999999, 0.51323605)
+object_tex = ExtResource("19_u4mcu")
+letter_tex = ExtResource("20_bhm8q")
+letter_var = "D3"
+
+[node name="music" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("21_qvec6")
+autoplay = true
 
 [connection signal="body_entered" from="Downstairs" to="Downstairs" method="_on_body_entered"]
 [connection signal="body_exited" from="Downstairs" to="Downstairs" method="_on_body_exited"]
